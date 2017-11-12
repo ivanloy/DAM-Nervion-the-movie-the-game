@@ -56,7 +56,7 @@ public class Personaje {
 		this.tipo = "jugador";
 		
 		razaBoost = new Raza(raza);
-		statBoost = 10; //Cantidad de puntos necesarios para subir el equivalente a 1 nivel en un stat determinado, cuanto mas peque�o, mejor.
+		statBoost = 10; //Cantidad de puntos necesarios para subir el equivalente a 1 nivel en un stat determinado, cuanto mas pequeï¿½o, mejor.
 		
 		nivel = 1;
 		exp = 0;
@@ -164,7 +164,29 @@ public class Personaje {
 		
 	}
 		
+	public void mostrarStats() {
+		
+		System.out.println("Nivel: " + nivel +
+				           "\nExp: " + exp);
+		showExpBar(exp, 0, 100, 20);
+		
+		
+	}
 	
+	public void showExpBar(long exp, long expPrev, long expNext, int size) {
+		
+		long diff = expNext - expPrev; 
+		long expDiff = exp - expPrev; 
+		int perc = (int)(100 * (expDiff / (float)diff));  
+		int paint = size * perc / 100; 
+		
+		for(int i = 0; i < size; i++) {
+			
+			if(i < paint) System.out.print("#");
+			else System.out.print("-");
+			
+		}
+	}
 }
 	
 	
